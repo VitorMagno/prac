@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){ _
     for(int i = 0; i < n; i++){
         cin >> a >> b >> c;
         // test[i].push_back(a);
-        // test[i].push_back(b);
+        // test[i].push_back(b);dudaehlindaS2
         // test[i].push_back(c);
         if(a == c || b == c){
             cout << "YES" << endl;

@@ -1,90 +1,68 @@
-#include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <iomanip>
-#include <float.h>
-#include <cmath>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-const float cent10 = roundf(0.10*100)/100;
-const float cent05 = roundf(0.05*100)/100;
-const float cent01 = roundf(0.01*100)/100;
 void filtragem (float &n, int notas[], int moedas[]){
     int temp = 0;
-    while(n > 0.00){
-        if(n >= 100.00){
-            temp = n/100.00;
-            n = fmod(n,100);
-            n = roundf(n*100)/100;
-            notas[0] = temp;
-        }
-        if(n >= 50.00 && n < 100.00){
-            temp = n/50.00;
-            n = fmod(n,50);
-            n = roundf(n*100)/100;
-            notas[1] = temp;
-        }
-        if(n >= 20.00 && n < 50.00){
-            temp = n/20.00;
-            n = fmod(n,20);
-            n = roundf(n*100)/100;
-            notas[2] = temp;
-        }
-        if(n >= 10.00 && n < 20.00){
-            temp = n/10.00;
-            n = fmod(n,10.00);
-            n = roundf(n*100)/100;
-            notas[3] = temp;
-        }
-        if(n >= 5.00 && n < 10.00){
-            temp = n/5.00;
-            n = fmod(n,5.00);
-            n = roundf(n*100)/100;
-            notas[4] = temp;
-        }
-        if(n >= 2.00 && n < 5.00){
-            temp = n/2.00;
-            n = fmod(n,2.00);
-            n = roundf(n*100)/100;
-            notas[5] = temp;
-        }
-        if(n >= 1.00 && n < 2.00){
-            temp = n/1.00;
-            n = fmod(n,1.00);
-            n = roundf(n*100)/100;
-            moedas[0] = temp;
-        }
-        if(n >= 0.50 && n < 1.00){
-            temp = n/0.50;
-            n = fmod(n,0.50);
-            n = roundf(n*100)/100;
-            moedas[1] = temp;
-        }
-        if(n >= 0.25 && n < 0.50){
-            temp = n/0.25;
-            n = fmod(n, 0.25);
-            n = roundf(n*100)/100;
-            moedas[2] = temp;
-        }
-        if(n >= cent10 && n < 0.25){
-            temp = n/cent10;
-            n = fmod(n,cent10);
-            n = roundf(n*100)/100;
-            moedas[3] = temp;
-        }
-        if(n >= cent05 && n < 0.10){
-            temp = n/cent05;
-            n = fmod(n,cent05);
-            n = roundf(n*100)/100;
-            moedas[4] = temp;
-        }
-        if(n >= cent01 && n < 0.05){
-            temp = n/cent01;
-            n = fmod(n,cent01);
-            n = roundf(n*100)/100;
-            moedas[5] = temp;
-        }
+    if(n >= 100.00){
+        temp = n/100.00;
+        n = fmod(n,100.00);  
+        notas[0] = temp;
+    }
+    if(n >= 50.00){
+        temp = n/50.00;
+        n = fmod(n,50.00);
+        notas[1] = temp;
+    }
+    if(n >= 20.00){
+        temp = n/20.00;
+        n = fmod(n,20.00);
+        notas[2] = temp;
+    }
+    if(n >= 10.00){
+        temp = n/10.00;
+        n = fmod(n,10.00);
+        notas[3] = temp;
+    }
+    if(n >= 5.00){
+        temp = n/5.00;
+        n = fmod(n,5.00);
+        notas[4] = temp;
+    }
+    if(n >= 2.00){
+        temp = n/2.00;
+        n = fmod(n,2.00);
+        notas[5] = temp;
+    }
+    if(n >= 1.00){
+        temp = n/1.00;
+        n = fmod(n,1.00);
+        moedas[0] = temp;
+    }
+    if(n >= 0.50){
+        temp = n/0.50;
+        n = fmod(n,0.50);
+        moedas[1] = temp;
+    }
+    if(n >= 0.25){
+        temp = n/0.25;
+        n = fmod(n, 0.25);
+        moedas[2] = temp;
+    }
+    if(n >= 0.10){
+        temp = n/.10;
+        n = fmod(n,.10);
+        moedas[3] = temp;
+    }
+    if(n >= .05){
+        temp = n/.05;
+        n = fmod(n,.05);
+        moedas[4] = temp;
+    }
+    if(n >= .01){
+        temp = n/.01;
+        n = fmod(n,.01);
+        moedas[5] = temp;
     }
     return;
 }
