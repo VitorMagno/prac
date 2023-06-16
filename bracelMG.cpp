@@ -23,7 +23,7 @@ bool busca(string buscada, string aqui, int inicio){
 bool escan(string &toFind, string &toLookIn){
     int tamanhoDaGrande = toLookIn.size();
     int tamanhoDaMenor = toFind.size();
-    for(int i = 0; i < tamanhoDaGrande+tamanhoDaMenor-1; i++){
+    for(int i = 0; i < tamanhoDaGrande; i++){
         if(i+tamanhoDaMenor > tamanhoDaGrande){
             if (busca(toFind, toLookIn+toLookIn, i) == true) {
                 cout << "S" << endl;
