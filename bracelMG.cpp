@@ -12,36 +12,43 @@ typedef long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
-void avalia(string obj, string teste, map<char, int> &v){
-    int tamanhoPalavra = obj.size();
-    int tamanhoTeste = teste.size();
-    for(int i = 0; i < tamanhoPalavra; i++){
-        if(v.find(obj[i]) != v.end()){
-            v[obj[i]] += 1;
-        }else{
-            v.insert(pair<char,int>(obj[i],1));
-        }
+bool busca(string buscada, string aqui, int inicio){
+    string buscaEm = aqui.substr(inicio, buscada.size());
+    if(buscaEm == buscada){
+        return true;
     }
-    for(int i = 0; i < tamanhoTeste; i++){
-        for(int j = 0; j < tamanhoPalavra; j++){
-            if(i+j> tamanhoTeste){
-                i = 0;
-            }
-            
-        }
-        i++;
-    }
+    return false;
 }
 
-int main(int argc, char* argv[]){ _
-    int n;
-    cin >> n;
-    string obj, teste;
-    map<char,int> v;
-    for(int i = 0; i < n; i++){
-        cin >> obj >> teste;
-        cout << obj.size() << " " << teste.size();
-        avalia(obj, teste, v);
+bool escan(string &toFind, string &toLookIn){
+    int tamanhoDaGrande = toLookIn.size();
+    int tamanhoDaMenor = toFind.size();
+    for(int i = 0; i < tamanhoDaGrande+tamanhoDaMenor-1; i++){
+        if(i+tamanhoDaMenor > tamanhoDaGrande){
+            if (busca(toFind, toLookIn+toLookIn, i) == true) {
+                cout << "S" << endl;
+                return true;
+            }
+        }else{
+            if(busca(toFind, toLookIn, i) == true){
+                cout << "S" << endl;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+int main(int argc, char* argv[]){ //_
+    int t;
+    cin >> t;
+    for(int i = 0; i < t; i++){
+        string toFind, toLookIn;
+        cin >> toFind >> toLookIn;
+        if(escan(toFind, toLookIn) == false){
+            reverse(toLookIn.begin(), toLookIn.end());
+            if(escan(toFind, toLookIn) == false) cout << "N" << endl;
+        }
     }
     return 0;
 }
