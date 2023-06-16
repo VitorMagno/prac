@@ -1,3 +1,3 @@
 program := main
 all:    $(program).cpp
-	g++ $(program).cpp -o $(program)
+	g++ $(program).cpp -o out
